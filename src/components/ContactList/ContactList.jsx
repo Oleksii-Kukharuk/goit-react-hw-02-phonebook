@@ -1,18 +1,19 @@
 import React from 'react';
+import { ButtonDelete, Title, ListItem } from './ContactList.syled';
 
 export const ContactList = ({ contacts, onDelete }) => {
   return (
     <div>
-      <h2>Contacts</h2>
+      <Title>Contacts</Title>
       <ul>
         {contacts.map(({ id, name, number }) => (
-          <li key={id}>
+          <ListItem key={id}>
             {name}: {number}
-            <button onClick={() => onDelete(id)} type="button">
+            <ButtonDelete onClick={() => onDelete(id)} type="button">
               {' '}
               Delete
-            </button>
-          </li>
+            </ButtonDelete>
+          </ListItem>
         ))}
       </ul>
     </div>

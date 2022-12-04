@@ -58,7 +58,6 @@ export class App extends React.Component {
 
   render() {
     const { filter } = this.state;
-
     const filtredContacts = this.filteredContacts();
 
     return (

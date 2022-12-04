@@ -1,5 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
+import { ContainerForm, Input, Button, Title } from './Form.styled';
 
 export class Form extends React.Component {
   state = {
@@ -30,10 +31,10 @@ export class Form extends React.Component {
   render() {
     return (
       <>
-        <h2>Phonebook</h2>
-        <form onSubmit={this.handleSubmit}>
+        <Title>Phonebook</Title>
+        <ContainerForm onSubmit={this.handleSubmit}>
           <label htmlFor={this.nameInputId}>Name </label>
-          <input
+          <Input
             onChange={this.handleChange}
             value={this.state.name}
             type="text"
@@ -45,7 +46,7 @@ export class Form extends React.Component {
           />
 
           <label htmlFor={this.numberInputId}>Number </label>
-          <input
+          <Input
             onChange={this.handleChange}
             value={this.state.number}
             type="tel"
@@ -56,8 +57,8 @@ export class Form extends React.Component {
             id={this.numberInputId}
           />
 
-          <button type="submit">Add contact</button>
-        </form>
+          <Button type="submit">Add contact</Button>
+        </ContainerForm>
       </>
     );
   }
