@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const FilterInput = styled.input`
   border: 2px solid #ccc;
   border-radius: 2px;
-  font-size: 8px;
-  padding: 8px 10px 8px 110px;
+  font-size: 14px;
+  padding: 8px 0px 8px 10px;
   margin-left: 20px;
+  width: 210px;
 `;
 
 export const FilterP = styled.p`
