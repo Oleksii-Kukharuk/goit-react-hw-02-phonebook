@@ -18,15 +18,28 @@ export class App extends React.Component {
   };
 
   addContact = ({ name, number }) => {
-    console.log(name, number);
     let contact = {
       id: nanoid(),
       name,
       number,
     };
 
+    const arrayOfcontactsNames = this.state.contacts.map(
+      contact => contact.name
+    );
+
+    if (arrayOfcontactsNames.includes(name)) {
+      alert(`${name} already in your phonebook`);
+    } else
+      this.setState(prevState => ({
+        contacts: [contact, ...prevState.contacts],
+      }));
+  };
+
+  deleteContact = contactId => {
+    console.log(contactId);
     this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
 
@@ -52,7 +65,7 @@ export class App extends React.Component {
       <>
         <Form onSubmit={this.addContact} />
         <Filter value={filter} onChange={this.onChangeFilter} />
-        <ContactList contacts={filtredContacts} />
+        <ContactList contacts={filtredContacts} onDelete={this.deleteContact} />
       </>
     );
   }
